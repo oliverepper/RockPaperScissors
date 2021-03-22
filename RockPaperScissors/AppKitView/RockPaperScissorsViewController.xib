@@ -10,20 +10,21 @@
                 <outlet property="label" destination="QLJ-uR-g5c" id="1pj-BV-xnp"/>
                 <outlet property="opponentHandPosition" destination="CCw-kc-Ucz" id="lUT-fO-4je"/>
                 <outlet property="playerHandPosition" destination="pTJ-tc-qbK" id="A5e-OJ-qtn"/>
+                <outlet property="presentSheet" destination="eoF-j2-DA7" id="G8Q-zI-Bs7"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="308" height="251"/>
+            <rect key="frame" x="0.0" y="0.0" width="353" height="278"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EF5-2k-kkU">
-                    <rect key="frame" x="20" y="20" width="268" height="211"/>
+                    <rect key="frame" x="20" y="20" width="313" height="238"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yjH-yu-M7e">
-                            <rect key="frame" x="19" y="180" width="231" height="31"/>
+                            <rect key="frame" x="41" y="207" width="231" height="31"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Rock Paper Scissors" id="Wb8-bv-68b">
                                 <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -31,10 +32,10 @@
                             </textFieldCell>
                         </textField>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhM-av-lgd">
-                            <rect key="frame" x="55" y="67" width="158" height="105"/>
+                            <rect key="frame" x="78" y="91" width="158" height="108"/>
                             <subviews>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pTJ-tc-qbK">
-                                    <rect key="frame" x="0.0" y="30" width="75" height="75"/>
+                                    <rect key="frame" x="0.0" y="33" width="75" height="75"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="75" id="hJv-cF-Iuw"/>
                                         <constraint firstAttribute="width" constant="75" id="yCc-Mu-vOW"/>
@@ -43,7 +44,7 @@
                                     <color key="contentTintColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CCw-kc-Ucz">
-                                    <rect key="frame" x="83" y="30" width="75" height="75"/>
+                                    <rect key="frame" x="83" y="33" width="75" height="75"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="75" id="7XY-2A-Dyx"/>
                                         <constraint firstAttribute="width" constant="75" id="LIF-fg-UZK"/>
@@ -62,7 +63,7 @@
                             </customSpacing>
                         </stackView>
                         <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wx1-3O-uOy">
-                            <rect key="frame" x="72" y="0.0" width="125" height="59"/>
+                            <rect key="frame" x="94" y="24" width="125" height="59"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-uR-g5c">
                                     <rect key="frame" x="25" y="43" width="75" height="16"/>
@@ -142,13 +143,25 @@
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
                         </stackView>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eoF-j2-DA7">
+                            <rect key="frame" x="100" y="-1" width="111" height="18"/>
+                            <buttonCell key="cell" type="check" title="present Sheet" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="MAu-ed-58z">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="presentSheet" id="8M8-gM-uWR"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <visibilityPriorities>
                         <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
+                        <integer value="1000"/>
                     </visibilityPriorities>
                     <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
@@ -163,7 +176,7 @@
                 <constraint firstItem="EF5-2k-kkU" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fo1-Q5-3Ob"/>
                 <constraint firstItem="EF5-2k-kkU" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="yNd-fA-bON"/>
             </constraints>
-            <point key="canvasLocation" x="-289" y="121.5"/>
+            <point key="canvasLocation" x="-266.5" y="135"/>
         </customView>
     </objects>
     <resources>

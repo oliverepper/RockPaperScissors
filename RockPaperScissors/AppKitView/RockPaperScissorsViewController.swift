@@ -13,6 +13,8 @@ class RockPaperScissorsViewController: NSViewController {
     @IBOutlet weak var opponentHandPosition: NSImageView!
     @IBOutlet weak var label: NSTextField!
 
+    @objc dynamic var presentSheet = false
+
     private var game = Game()
     private var cancellables = Set<AnyCancellable>()
 
@@ -33,7 +35,9 @@ class RockPaperScissorsViewController: NSViewController {
     fileprivate func subscribeToOpponent() -> AnyCancellable {
         return game.$opponent
             .handleEvents(receiveOutput: {
-                self.presentAlert(for: $0)
+                if self.presentSheet {
+                    self.presentAlert(for: $0)
+                }
             })
             .map(getImage)
             .assign(to: \.image, on: opponentHandPosition)
@@ -78,8 +82,6 @@ class RockPaperScissorsViewController: NSViewController {
         alert.icon = getImage(for: handPosition)
         alert.messageText = "Opponents choice"
         alert.informativeText = "\(handPosition)"
-        alert.beginSheetModal(for: window) { (_) in
-            ()
-        }
+        alert.beginSheetModal(for: window) { _ in }
     }
 }
