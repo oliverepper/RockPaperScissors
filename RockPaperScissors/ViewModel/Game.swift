@@ -23,7 +23,7 @@ class Game: ObservableObject {
     func setPlayer(_ hand: HandPosition) {
         player = hand
         if opponentPlayedByComputer {
-            let randomPosition = HandPosition(rawValue: Int.random(in: 0..<2))!
+            let randomPosition = HandPosition(rawValue: Int.random(in: 0..<3))!
             setOpponent(randomPosition)
         }
 
